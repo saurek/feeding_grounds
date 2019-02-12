@@ -1,21 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+import random
+
 
 # Create your views here.
 # function based view
 def home(request):
-    html_var = 'Tanks'
-    html_ = f"""<!DOCTYPE html>
-    <html lang=en>
-
-    <head>
-    </head>
-    <body>
-    <h1>Hail Satan!</h1>
-    <p>{html_var} are coming through</p>
-    </body>
-    </html>
-    """
-    #f strings
-    return HttpResponse(html_)
-    #return render(request, "home.html", {})#response
+    html_var = str(random.randint(0, 1000)) + ' tanks '
+    return render(request, "base.html", {"html_var": html_var})  # response
